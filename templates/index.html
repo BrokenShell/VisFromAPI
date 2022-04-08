@@ -16,33 +16,33 @@
         </ul>
     </nav>
     <article>
-    <h2>Altair Graph via External API</h2>
-    <div id="chart">
-        <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
-        <script src="https://cdn.jsdelivr.net/npm/vega-lite@4.8.1"></script>
-        <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.0.0"></script>
-        <div id="graph"></div>
-        <script type="text/javascript">
-            fetch("http://127.0.0.1:8000/graph", {
-                method: "POST",
-                headers: {"Content-Type": "application/json"},
-                body: JSON.stringify({
-                    x_axis: "health",
-                    y_axis: "energy",
-                    target: "rarity",
+        <h2>Altair Graph via External API</h2>
+        <div id="chart">
+            <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+            <script src="https://cdn.jsdelivr.net/npm/vega-lite@4.8.1"></script>
+            <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.0.0"></script>
+            <div id="graph"></div>
+            <script type="text/javascript">
+                fetch("http://127.0.0.1:8000/graph", {
+                    method: "POST",
+                    headers: {"Content-Type": "application/json"},
+                    body: JSON.stringify({
+                        x_axis: "health",
+                        y_axis: "energy",
+                        target: "rarity",
+                    })
                 })
-            })
-            .then(function (response) {
-                return response.json();
-            })
-            .then(function (data) {
-                vegaEmbed("#graph", data);
-            })
-            .catch(function (err) {
-                console.warn("Something went wrong.", err);
-            });
-        </script>
-    </div>
+                    .then(function (response) {
+                        return response.json();
+                    })
+                    .then(function (data) {
+                        vegaEmbed("#graph", data);
+                    })
+                    .catch(function (err) {
+                        console.warn("Something went wrong.", err);
+                    });
+            </script>
+        </div>
     </article>
     <footer><p>© 2022 Bloom Institute of Technology</p></footer>
 </section>
