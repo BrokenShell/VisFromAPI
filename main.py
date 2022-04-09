@@ -3,18 +3,42 @@ from flask import Flask, render_template, request
 APP = Flask(__name__)
 
 
-@APP.route("/", methods=["GET", "POST"])
-def home():
+@APP.route("/")
+@APP.route("/scatter", methods=["GET", "POST"])
+def scatter():
     x_axis = request.values.get("x_axis", "health")
     y_axis = request.values.get("y_axis", "energy")
     target = request.values.get("target", "rarity")
-
     return render_template(
-        "index.html",
+        "scatter.html",
         x_axis=x_axis,
         y_axis=y_axis,
         target=target,
-        options=["health", "energy", "sanity", "rarity", "level"],
+        axis_options=["health", "energy", "sanity"],
+        target_options=["type", "rarity", "level"],
+    )
+
+
+@APP.route("/bar", methods=["GET", "POST"])
+def bar():
+    x_axis = request.values.get("x_axis", "type")
+    target = request.values.get("target", "rarity")
+    return render_template(
+        "bar.html",
+        x_axis=x_axis,
+        target=target,
+        x_options=["type", "rarity", "level"],
+        target_options=["type", "rarity", "level"],
+    )
+
+
+@APP.route("/pie", methods=["GET", "POST"])
+def pie():
+    target = request.values.get("target", "rarity")
+    return render_template(
+        "pie.html",
+        target=target,
+        target_options=["type", "rarity", "level"],
     )
 
 

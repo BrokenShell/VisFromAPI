@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2>Altair Scatter Plot</h2>
+<form method="post" action="{{ url_for('scatter') }}">
+    <p><label>X-axis:
+        <select name="x_axis" id="x_axis">
+            {% for op in axis_options %}
+                {% if op == x_axis %}
+                    <option selected="selected">{{ op }}</option>
+                {% else %}
+                    <option>{{ op }}</option>
+                {% endif %}
+            {% endfor %}
+        </select>
+    </label></p>
+    <p><label>Y-axis:
+        <select name="y_axis" id="y_axis">
+            {% for op in axis_options %}
+                {% if op == y_axis %}
+                    <option selected="selected">{{ op }}</option>
+                {% else %}
+                    <option>{{ op }}</option>
+                {% endif %}
+            {% endfor %}
+        </select>
+    </label></p>
+    <p><label>Target:
+        <select name="target" id="target">
+            {% for op in target_options %}
+                {% if op == target %}
+                    <option selected="selected">{{ op }}</option>
+                {% else %}
+                    <option>{{ op }}</option>
+                {% endif %}
+            {% endfor %}
+        </select>
+    </label></p>
+    <button type="submit" id="submit" name="submit">
+        Generate Chart
+    </button>
+    <br class="clear">
+</form>
+<div id="altair-graph"></div>
+<script src="{{ url_for('static', filename='js/scatter.js') }}"></script>
+{% endblock %}

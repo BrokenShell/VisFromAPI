@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <title>VisFromAPI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/colors.css') }}">
+    <link rel="icon" href="/static/images/favicon.ico">
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@4.17.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.20.8"></script>
+</head>
+<body>
+<section>
+    <header>
+        <h1><a href="/">VisFromAPI v0.1.1</a></h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('scatter')}}">Scatter Plot</a></li>
+            <li><a href="{{ url_for('bar')}}">Bar Graph</a></li>
+            <li><a href="{{ url_for('pie')}}">Pie Chart</a></li>
+        </ul>
+    </nav>
+    <article>
+        {% block content %}
+        {% endblock %}
+    </article>
+</section>
+</body>
+</html>
