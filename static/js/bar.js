@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    let ds_api_url = "http://127.0.0.1:8000/graphs/bar-graph";
+    let ds_api_url = "http://altairapi-dev.us-east-1.elasticbeanstalk.com/graphs/bar-graph";
     let x_axis = document.getElementById("x_axis");
     let target = document.getElementById("target");
     fetch(ds_api_url, {

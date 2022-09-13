@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    let ds_api_url = "http://127.0.0.1:8000/graphs/pie-chart";
+    let ds_api_url = "http://altairapi-dev.us-east-1.elasticbeanstalk.com/graphs/pie-chart";
     let target = document.getElementById("target");
     console.log(target.value);
     fetch(ds_api_url, {
