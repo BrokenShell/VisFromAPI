@@ -219,7 +219,7 @@ article table td {
 }
 
 #altair-graph {
-    margin: 0 0 20px 100px;
+    margin: 0 0 -20px 100px;
 }
 
 .vega-embed summary {

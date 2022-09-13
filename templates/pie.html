@@ -1,23 +1,24 @@
 {% extends "layout.html" %}
 {% block content %}
-<h2>Altair Pie Chart</h2>
-<form method="post" action="{{ url_for('pie') }}">
-    <p><label>Target:
-        <select name="target" id="target">
-            {% for op in target_options %}
-                {% if op == target %}
-                    <option selected="selected">{{ op }}</option>
-                {% else %}
-                    <option>{{ op }}</option>
-                {% endif %}
-            {% endfor %}
-        </select>
-    </label></p>
-    <button type="submit" id="submit" name="submit">
-        Generate Chart
-    </button>
-    <br class="clear">
-</form>
-<div id="altair-graph"></div>
-<script src="{{ url_for('static', filename='js/pie.js') }}"></script>
+    <h2>Altair Pie Chart</h2>
+    <form method="post" action="{{ url_for('pie') }}">
+        <p><label>Target:
+            <select name="target" id="target">
+                {% for op in target_options %}
+                    {% if op == target %}
+                        <option selected="selected">{{ op }}</option>
+                    {% else %}
+                        <option>{{ op }}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+        </label></p>
+        <button type="submit" id="submit" name="submit">
+            Generate Chart
+        </button>
+        <br class="clear">
+    </form>
+    <div id="altair-graph"></div>
+    <div id="altair-text"></div>
+    <script src="{{ url_for('static', filename='js/pie.js') }}"></script>
 {% endblock %}

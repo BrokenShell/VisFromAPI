@@ -9,13 +9,14 @@ document.addEventListener("DOMContentLoaded", function() {
             target: target.value,
         })
     })
-        .then(function (response) {
-            return response.json();
+        .then((response) => response.json())
+        .then((data) => {
+            let target = document.getElementById("altair-text");
+            let description = document.createElement("p");
+            let text = document.createTextNode(data.text);
+            description.appendChild(text);
+            target.appendChild(description);
+            vegaEmbed("#altair-graph", data.graph);
         })
-        .then(function (data) {
-            vegaEmbed("#altair-graph", data);
-        })
-        .catch(function (err) {
-            console.warn("Something went wrong.", err);
-        });
+        .catch((err) => console.warn("Something went wrong!", err));
 });

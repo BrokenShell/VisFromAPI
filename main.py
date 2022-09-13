@@ -21,8 +21,8 @@ def scatter():
 
 @APP.route("/bar", methods=["GET", "POST"])
 def bar():
-    x_axis = request.values.get("x_axis", "type")
-    target = request.values.get("target", "rarity")
+    x_axis = request.values.get("x_axis", "rarity")
+    target = request.values.get("target", "type")
     return render_template(
         "bar.html",
         x_axis=x_axis,
